@@ -61,6 +61,8 @@ create table reference_department(
     e_id varchar(5),
     h_id varchar(5),
     ps_id varchar(5),
+    c_id varchar(5),
+    foreign key (c_id) references case_info(case_id),
     foreign key (e_id) references employee(employee_id),
     foreign key (h_id) references hospital(hospital_id),
     foreign key (ps_id) references psychologist(psychologist_id));
