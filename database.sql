@@ -34,7 +34,7 @@ create table hospital(
     foreign key p_id references patient(patient_id));
 
 create table psychologist(
-    psychologist_id varchar(5) priamry key,
+    psychologist_id varchar(5) primary key,
     first_name char(30),
     last_name char(30),
     age int,
@@ -43,7 +43,7 @@ create table psychologist(
     p_id varchar(5),
     foreign key p_id references patient(patient_id));
 
-create table case(
+create table case_info(
     case_id varchar(5) primary key,
     p_id varchar(5),
     ps_id varchar(5),
@@ -53,7 +53,8 @@ create table case(
     foreign key p_id references patient(patient_id),
     foreign key ps_id references psychologist(psychologist_id),
     foreign key h_id references hospital(hospital_id),
-    foreign key e_id references employee(employee_id));
+    foreign key e_id references employee(employee_id)
+);
 
 create table reference_department(
     reference_id varchar(5),
@@ -69,5 +70,4 @@ create table billing_department(
     amount int,
     billing_date date,
     c_id varchar(5),
-    foreign key c_id references case(case_id));
-    
+    foreign key c_id references case_info(case_id));
